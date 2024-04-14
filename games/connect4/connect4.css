@@ -21,7 +21,7 @@ h2{
     grid-template-columns: repeat(7,1fr);
     border: 2px solid black;
     width: 630px;
-    background-color: rgb(74, 74, 198); 
+    background-color: #d06d0c; 
 }
 
 ul{
@@ -41,7 +41,7 @@ ul p{
 
 ul:hover{
     cursor: pointer;
-    background-color: rgb(98, 136, 238);
+    background-color: #3a3a3a;
 }
 
 
