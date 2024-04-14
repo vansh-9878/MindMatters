@@ -50,3 +50,7 @@ span{
     background-image: url(images/hello.png);
     background-size: cover;
 }
+
+.text{
+    font-size: 20px;
+}
