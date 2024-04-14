@@ -19,12 +19,10 @@ body{
 
 .navBtn{
     border-radius: 20px;
-    
+    margin-top: 10px;
 }
 
-.sign-up{
-    background-color: white;
-}
+
 
 .start{
     margin: 40px;
@@ -49,4 +47,49 @@ span{
     height: 400px;
     background-image: url(images/hello.png);
     background-size: cover;
+}
+
+.text{
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.podcast{
+    margin-top: 40px;
+}
+
+.pic{
+    margin-left: 30px;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.pod1{
+    background-image: url(images/podcast1.jpeg);
+    background-size: cover;
+}
+
+.pod2{
+    background-image: url(images/podcast2.jpg);
+    background-size: cover;
+}
+.pod3{
+    background-image: url(images/podcast3.jpeg);
+    background-size: cover;
+}
+.pod4{
+    background-image: url(images/podcast4.jpeg);
+    background-size: cover;
+}
+
+.head{
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.author{
+    margin-left: 90px;
 }
