@@ -22,7 +22,9 @@ body{
     margin-top: 10px;
 }
 
-
+.sign-up{
+    background-color: white;
+}
 
 .start{
     margin: 40px;

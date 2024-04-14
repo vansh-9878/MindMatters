@@ -98,7 +98,7 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: '/get_resp',
+                    url: 'http://localhost:5000/get_resp',
                     data: JSON.stringify({ message: userMessage }),
                     contentType: 'application/json',
                     success: function(data) {
