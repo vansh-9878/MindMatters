@@ -19,6 +19,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    padding: 2500px;
 }
 
 .main > h1,
@@ -34,7 +35,8 @@
     max-width: 1000px;
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 100px;
+    padding: 100px;
     margin: 0 auto;
     margin-bottom: 400px;
     border-radius: 5px;
