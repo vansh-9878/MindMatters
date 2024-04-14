@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMatters</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <main>
+
+        <div class="main">
+          <h1 id="title">Health Score</h1>
+          <p id="description">
+            Tell us how you are feeling
+          </p>
+          
+           <div class="main-content">
+           <div class="form-content">
+            <form id="survey-form">
+                <div class="form-group">
+                    <label for="number" id="number-label">How would you rate your overall mood today?</label>
+                    <div class="number-input">
+                        <input id="number" type="range" min="1" max="5" step="1" oninput="updateNumberValue(this.value)" required placeholder="Enter your rate" />
+                        <span id="rating-number">1</span>
+                        <script>
+                            function updateNumberValue(value) {
+                                document.getElementById("rating-number").innerHTML = value;
+                            }
+                        </script>
+                    </div>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label for="number" id="number-label">How would you rate your energy level?</label>
+                    <div class="number-input">
+                        <input id="number" type="range" min="1" max="5" step="1" oninput="updateNumberValue(this.value)" required placeholder="Enter your rate" />
+                        <span id="rating-number">1</span>
+                        <script>
+                            function updateNumberValue(value) {
+                                document.getElementById("rating-number").innerHTML = value;
+                            }
+                        </script>
+                    </div>
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>How often do you feel anxious or worried?</legend>
+                            <input type="radio" name="action" checked id="Very Often" value="Very Often" /><label for="Very Often">Very Often</label><br />
+                            <input type="radio" name="action" id="Often" value="Often"  /><label for="Often">Often</label><br />
+                            <input type="radio" name="action" id="Sometimes" value="Sometimes" /><label for="Sometimes">Sometimes</label><br />
+                            <input type="radio" name="action" id="Never" value="Never" /><label for="Never">Never</label><br />
+                        </fieldset>
+                    </div>
+                    <div></div>
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Are you engaging in regular physical activity or exercise?</legend>
+                            <input type="radio" name="action" checked id="Yes" value="Yes" /><label for="Yes">Yes</label><br />
+                            <input type="radio" name="action" id="No" value="No"  /><label for="No">No</label><br />
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Are you practicing any relaxation techniques, such as meditation or deep breathing?</legend>
+                            <input type="radio" name="action" checked id="Yes" value="Yes" /><label for="Yes">Yes</label><br />
+                            <input type="radio" name="action" id="No" value="No"  /><label for="No">No</label><br />
+                        </fieldset>
+                    </div>
+                    <div class="form-group">
+                        <label for="number" id="number-label">How would you rate your appetite and eating habits?</label>
+                        <div class="number-input">
+                            <input id="number" type="range" min="1" max="5" step="1" oninput="updateNumberValue(this.value)" required placeholder="Enter your rate" />
+                            <span id="rating-number">1</span>
+                            <script>
+                                function updateNumberValue(value) {
+                                    document.getElementById("rating-number").innerHTML = value;
+                                }
+                            </script>
+                        </div>
+
+                    <div class="form-group">
+                        <label for="name" id="name-label">How many hours of sleep did you get last night?</label>
+                        <input id="name" type="text" required placeholder="Enter your answer" />
+                    </div>
+                    <div class="form-group">
+                        <fieldset>
+                            <legend>Do you feel rested upon waking up?</legend>
+                            <input type="radio" name="action" checked id="Yes" value="Yes" /><label for="Yes">Yes</label><br />
+                            <input type="radio" name="action" id="No" value="No"  /><label for="No">No</label><br />
+                        </fieldset>
+                    </div>
+                  
+                  
+                    <div class="form-group">
+                        <p>Have you been practicing any of these relaxation techniques ?</p>
+                        <input type="checkbox" id="video-length" name="video-length" value="video-length">
+                        <label for="video-length">Deep breathing</label><br>
+                        <input type="checkbox" id="content-quality" name="content-quality" value="content-quality">
+                        <label for="content-quality">Yoga</label><br>
+                        <input type="checkbox" id="more-videos" name="more-videos" value="more-videos">
+                        <label for="more-videos">Meditation</label><br>
+                        <input type="checkbox" id="more-videos" name="more-videos" value="more-videos">
+                        <label for="more-videos">Journaling or expressive writing</label><br>
+                        <input type="checkbox" id="more-videos" name="more-videos" value="more-videos">
+                        <label for="more-videos">Listening to calming music</label><br>
+                    </div>
+              
+              <button type="submit" id="submit">Submit</button>
+            </form>
+          </div>
+          </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 MindMatters. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
