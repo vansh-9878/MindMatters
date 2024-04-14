@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333131;
+            color: white;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: #ccc;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .username {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .upload-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            width:100px;
+            background-color: #ec5b07; /* Orange color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Hide the file input */
+        #file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-image">
+            <img src="default.jpg" alt="Profile Picture">
+        </div>
+        <div class="username">
+            {{ username }}
+        </div>
+        <!-- Form for uploading profile picture -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <!-- File input element -->
+            <input type="file" id="file-input" name="file">
+            <!-- Label for the file input -->
+            <label for="file-input" class="upload-btn">Upload Profile Picture</label>
+            <!-- Submit button -->
+            <button type="submit" style="display: none;"></button>
+        </form>
+    </div>
+</body>
+</html>
