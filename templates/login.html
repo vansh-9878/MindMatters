@@ -74,10 +74,7 @@
         .message {
             text-align: center;
             margin-top: 20px;
-        }
-
-        .error {
-            color: red;
+            color: rgb(228, 220, 220); /* Added for error message color */
         }
     </style>
 </head>
@@ -85,16 +82,16 @@
     <div class="container">
         <h2>Login Form</h2>
         <div class="form-line"></div>
-        <form action="/login" method="POST">
+        <form action="/login_1" method="POST">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            <button type="submit">Login</button> <!-- Removed anchor tag -->
         </form>
         <div class="message">
             {% if message %}
-                <p class="{% if error %}error{% endif %}">{{ message }}</p>
+                <p>{{ message }}</p>  <!-- Display error message if it exists -->
             {% endif %}
         </div>
     </div>
