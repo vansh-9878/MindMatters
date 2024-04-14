@@ -38,11 +38,118 @@
       </nav>
 
       <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4"></div>
-        <div class="col-4"></div>
-        <div class="col-4"></div>
+        <div class="col-3 bg colour-pl">
+            <div class="title">Colour Plattee</div>
+            <span>Can you guess the correct colour, Lets find Out!!!</span><br>
+            <button class="btn btn-md btn-warning play col">PLAY</button>
+        </div>
+        <div class="col-3 bg connect">
+            <div class="title">Connect It</div>
+            <span>Arrange the colours in correct order, Sounds simple but IS IT ???</span><br>
+            <button class="btn btn-md btn-warning play con">PLAY</button>
+        </div>
+        <div class="col-3 bg words">
+            <div class="title">Word Scramble</div>
+            <span>Who Doesn't like Jumbled Words???</span><br>
+            <button id="fix" class="btn btn-md btn-warning play fix">PLAY</button>
+        </div>
+      </div>
+      
+
+
+      <div class="game1 pop escape">
+        <div class="container">
+            <h1>Color Palette Matching</h1>
+            <div class="color-palette" id="colorPalette"></div>
+            <button id="startButton">Start Game</button>
+            <div class="alert alert-success pass" role="alert" >
+                CORRECT
+            </div>
+            <div class="alert alert-danger fail" role="alert">
+                INCORRECT
+            </div>
+        </div>
+        <button class="btn btn-lg btn-warning set1 set">CLOSE</button>
       </div>
 
+      <div class="game2 pop escape">
+        <div class="container2">
+            <h1>CONNECT-4</h1>
+            <h2 id="whosturn">Red's Turn</h2>
+        
+            <div class="board">
+        
+                <ul class="column" id="c1">
+    
+                    <p id="c1r5"></p>
+                    <p id="c1r4"></p>
+                    <p id="c1r3"></p>
+                    <p id="c1r2"></p>
+                    <p id="c1r1"></p>
+                </ul>
+                <ul class="column" id="c2">
+    
+                    <p id="c2r5"></p>
+                    <p id="c2r4"></p>
+                    <p id="c2r3"></p>
+                    <p id="c2r2"></p>
+                    <p id="c2r1"></p>
+                </ul>
+                <ul class="column" id="c3">
+                    <p id="c3r5"></p>
+                    <p id="c3r4"></p>
+                    <p id="c3r3"></p>
+                    <p id="c3r2"></p>
+                    <p id="c3r1"></p>
+                </ul>
+                <ul class="column" id="c4">
+                    <p id="c4r5"></p>
+                    <p id="c4r4"></p>
+                    <p id="c4r3"></p>
+                    <p id="c4r2"></p>
+                    <p id="c4r1"></p>
+                </ul>
+                <ul class="column" id="c5">
+                    <p id="c5r5"></p>
+                    <p id="c5r4"></p>
+                    <p id="c5r3"></p>
+                    <p id="c5r2"></p>
+                    <p id="c5r1"></p>
+                </ul>
+            
+        
+            </div>
+        </div>
+        <button class="btn btn-lg btn-warning set2 set">CLOSE</button>
+      </div>
+
+
+      <div class="game3 pop escape">
+        <div class="container3">
+            <h2>Word Scramble</h2>
+            <div class="content">
+                <p class="word"></p>
+                <div class="details">
+                    <p class="hint">Hint: <span></span></p>
+                    <p class="time">Time Left: <span><b>30</b>s</span></p>
+                </div>
+                <input type="text" spellcheck="false" placeholder="Enter a valid word">
+                <div class="buttons">
+                    <button class="refresh-word">Refresh Word</button>
+                    <button class="check-word">Check Word</button>
+                </div>
+                <div class="alert alert-success pass" role="alert" >
+                    CORRECT
+                </div>
+                <div class="alert alert-danger fail" role="alert">
+                    INCORRECT
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-lg btn-warning set3 set">CLOSE</button>
+      </div>
+
+      <script src="script.js"></script>
 </body>
 </html>
