@@ -5,111 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindMatters</title>
     <link rel="stylesheet" href="form.css">
+    <style>
+        /* Add your custom styles here */
+    </style>
 </head>
 <body>
     <main>
-
         <div class="main">
-          <h1 id="title">Health Score</h1>
-          <p id="description">
-            Tell us how you are feeling
-          </p>
-          
-           <div class="main-content">
-           <div class="form-content">
-            <form id="survey-form">
-                <div class="form-group">
-                    <label for="number" id="number-label">How would you rate your overall mood today?</label>
-                    <div class="number-input">
-                        <input id="number" type="range" min="1" max="5" step="1" oninput="updateNumberValue(this.value)" required placeholder="Enter your rate" />
-                        <span id="rating-number">1</span>
-                        <script>
-                            function updateNumberValue(value) {
-                                document.getElementById("rating-number").innerHTML = value;
-                            }
-                        </script>
-                    </div>
-                    
-                </div>
-
-                <div class="form-group">
-                    <label for="number" id="number-label">How would you rate your energy level?</label>
-                    <div class="number-input">
-                        <input id="number" type="range" min="1" max="5" step="1" oninput="updateNumberValue(this.value)" required placeholder="Enter your rate" />
-                        <span id="rating-number">1</span>
-                        <script>
-                            function updateNumberValue(value) {
-                                document.getElementById("rating-number").innerHTML = value;
-                            }
-                        </script>
-                    </div>
-                    <div class="form-group">
-                        <fieldset>
-                            <legend>How often do you feel anxious or worried?</legend>
-                            <input type="radio" name="action" checked id="Very Often" value="Very Often" /><label for="Very Often">Very Often</label><br />
-                            <input type="radio" name="action" id="Often" value="Often"  /><label for="Often">Often</label><br />
-                            <input type="radio" name="action" id="Sometimes" value="Sometimes" /><label for="Sometimes">Sometimes</label><br />
-                            <input type="radio" name="action" id="Never" value="Never" /><label for="Never">Never</label><br />
-                        </fieldset>
-                    </div>
-                    <div></div>
-                    <div class="form-group">
-                        <fieldset>
-                            <legend>Are you engaging in regular physical activity or exercise?</legend>
-                            <input type="radio" name="action" checked id="Yes" value="Yes" /><label for="Yes">Yes</label><br />
-                            <input type="radio" name="action" id="No" value="No"  /><label for="No">No</label><br />
-                        </fieldset>
-                    </div>
-                    <div class="form-group">
-                        <fieldset>
-                            <legend>Are you practicing any relaxation techniques, such as meditation or deep breathing?</legend>
-                            <input type="radio" name="action" checked id="Yes" value="Yes" /><label for="Yes">Yes</label><br />
-                            <input type="radio" name="action" id="No" value="No"  /><label for="No">No</label><br />
-                        </fieldset>
-                    </div>
-                    <div class="form-group">
-                        <label for="number" id="number-label">How would you rate your appetite and eating habits?</label>
-                        <div class="number-input">
-                            <input id="number" type="range" min="1" max="5" step="1" oninput="updateNumberValue(this.value)" required placeholder="Enter your rate" />
-                            <span id="rating-number">1</span>
-                            <script>
-                                function updateNumberValue(value) {
-                                    document.getElementById("rating-number").innerHTML = value;
-                                }
-                            </script>
+            <h1 id="title">Health Score</h1>
+            <p id="description">Tell us how you are feeling</p>
+            <div class="main-content">
+                <div class="form-content">
+                    <form id="survey-form">
+                        <div class="form-group">
+                            <label for="mood">How would you rate your overall mood today?</label>
+                            <div class="number-input">
+                                <input id="mood" type="range" min="1" max="5" step="1" oninput="updateNumberValue('mood', this.value)" required placeholder="Enter your rate" />
+                                <span id="rating-mood">1</span>
+                            </div>
                         </div>
-
-                    <div class="form-group">
-                        <label for="name" id="name-label">How many hours of sleep did you get last night?</label>
-                        <input id="name" type="text" required placeholder="Enter your answer" />
-                    </div>
-                    <div class="form-group">
-                        <fieldset>
+                        <div class="form-group">
+                            <label for="energy">How would you rate your energy level?</label>
+                            <div class="number-input">
+                                <input id="energy" type="range" min="1" max="5" step="1" oninput="updateNumberValue('energy', this.value)" required placeholder="Enter your rate" />
+                                <span id="rating-energy">1</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <legend>How often do you feel anxious or worried?</legend>
+                            <input type="radio" name="anxiety" id="very_often" value="Very Often" checked /><label for="very_often">Very Often</label><br />
+                            <input type="radio" name="anxiety" id="often" value="Often" /><label for="often">Often</label><br />
+                            <input type="radio" name="anxiety" id="sometimes" value="Sometimes" /><label for="sometimes">Sometimes</label><br />
+                            <input type="radio" name="anxiety" id="never" value="Never" /><label for="never">Never</label><br />
+                        </div>
+                        <div class="form-group">
+                            <legend>Are you engaging in regular physical activity or exercise?</legend>
+                            <input type="radio" name="activity" id="yes_activity" value="Yes" checked /><label for="yes_activity">Yes</label><br />
+                            <input type="radio" name="activity" id="no_activity" value="No" /><label for="no_activity">No</label><br />
+                        </div>
+                        <div class="form-group">
+                            <legend>Are you practicing any relaxation techniques, such as meditation or deep breathing?</legend>
+                            <input type="radio" name="relaxation" id="yes_relaxation" value="Yes" checked /><label for="yes_relaxation">Yes</label><br />
+                            <input type="radio" name="relaxation" id="no_relaxation" value="No" /><label for="no_relaxation">No</label><br />
+                        </div>
+                        <div class="form-group">
+                            <label for="appetite">How would you rate your appetite and eating habits?</label>
+                            <div class="number-input">
+                                <input id="appetite" type="range" min="1" max="5" step="1" oninput="updateNumberValue('appetite', this.value)" required placeholder="Enter your rate" />
+                                <span id="rating-appetite">1</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sleep">How many hours of sleep did you get last night?</label>
+                            <input id="sleep" type="number" min="0" max="24" step="1" required placeholder="Enter hours" />
+                        </div>
+                        <div class="form-group">
                             <legend>Do you feel rested upon waking up?</legend>
-                            <input type="radio" name="action" checked id="Yes" value="Yes" /><label for="Yes">Yes</label><br />
-                            <input type="radio" name="action" id="No" value="No"  /><label for="No">No</label><br />
-                        </fieldset>
-                    </div>
-                  
-                  
-                    <div class="form-group">
-                        <p>Have you been practicing any of these relaxation techniques ?</p>
-                        <input type="checkbox" id="video-length" name="video-length" value="video-length">
-                        <label for="video-length">Deep breathing</label><br>
-                        <input type="checkbox" id="content-quality" name="content-quality" value="content-quality">
-                        <label for="content-quality">Yoga</label><br>
-                        <input type="checkbox" id="more-videos" name="more-videos" value="more-videos">
-                        <label for="more-videos">Meditation</label><br>
-                        <input type="checkbox" id="more-videos" name="more-videos" value="more-videos">
-                        <label for="more-videos">Journaling or expressive writing</label><br>
-                        <input type="checkbox" id="more-videos" name="more-videos" value="more-videos">
-                        <label for="more-videos">Listening to calming music</label><br>
-                    </div>
-              
-              <button type="submit" id="submit">Submit</button>
-            </form>
-          </div>
-          </div>
+                            <input type="radio" name="rested" id="yes_rested" value="Yes" checked /><label for="yes_rested">Yes</label><br />
+                            <input type="radio" name="rested" id="no_rested" value="No" /><label for="no_rested">No</label><br />
+                        </div>
+                        <div class="form-group">
+                            <p>Have you been practicing any of these relaxation techniques?</p>
+                            <input type="checkbox" id="deep_breathing" name="relaxation_techniques" value="Deep Breathing">
+                            <label for="deep_breathing">Deep breathing</label><br>
+                            <input type="checkbox" id="yoga" name="relaxation_techniques" value="Yoga">
+                            <label for="yoga">Yoga</label><br>
+                            <input type="checkbox" id="meditation" name="relaxation_techniques" value="Meditation">
+                            <label for="meditation">Meditation</label><br>
+                            <input type="checkbox" id="journaling" name="relaxation_techniques" value="Journaling">
+                            <label for="journaling">Journaling or expressive writing</label><br>
+                            <input type="checkbox" id="music" name="relaxation_techniques" value="Music">
+                            <label for="music">Listening to calming music</label><br>
+                        </div>
+                        <button type="submit" id="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
@@ -117,10 +88,51 @@
     </footer>
     <script src="scripts.js"></script>
     <script>
-        btn=document.querySelector("#submit");
-        btn.addEventListener("click",function(){
+        // Function to update the rating number display
+        function updateNumberValue(type, value) {
+            document.getElementById("rating-" + type).innerHTML = value;
+        }
+
+        // Function to handle form submission
+        document.getElementById("survey-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get form data
+            var form = event.target;
+            var mood = parseInt(form.elements["mood"].value);
+            var energy = parseInt(form.elements["energy"].value);
+            var anxiety = form.elements["anxiety"].value;
+            var activity = form.elements["activity"].value;
+            var relaxation = form.elements["relaxation"].value;
+            var appetite = parseInt(form.elements["appetite"].value);
+            var sleep = parseInt(form.elements["sleep"].value);
+            var rested = form.elements["rested"].value;
+            var relaxationTechniques = Array.from(form.elements["relaxation_techniques"])
+                .filter(input => input.checked)
+                .map(input => input.value);
+
+            // Calculate health score
+            var healthScore = (mood + energy + appetite) / 3;
+            if (rested === "Yes") {
+                healthScore += 1;
+            }
+            if (anxiety === "Never") {
+                healthScore += 1;
+            }
+            if (activity === "Yes") {
+                healthScore += 1;
+            }
+            if (relaxation === "Yes") {
+                healthScore += 1;
+            }
+            healthScore += relaxationTechniques.length * 0.5;
+
+            // Display health score
+            alert("Your health score is: " + healthScore.toFixed(2));
+
+            // Redirect to another page
             window.location.href = "index2.html";
-        })
+        });
     </script>
 </body>
 </html>
