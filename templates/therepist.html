@@ -10,12 +10,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color:#333;
         }
         .container{
             margin-top: 10%;
             width: 500px;
-            background-color: bisque;
-
+            background-color: rgb(247, 135, 61);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .text{
             margin:20px;
@@ -28,6 +31,7 @@
         .output{
             text-align: center;
             font-size: 23px;
+            margin-top: 20px;
         }
         .hide{
             display: none;
@@ -56,38 +60,44 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script>
         document.getElementById("schedule").addEventListener("click", function() {
-    var selectElement = document.querySelector("select");
-    var selectedValue = selectElement.value;
-    var selectElementDate = document.getElementById("dateOptions");
-    var selectedDate = selectElementDate.value;
+            var selectElement = document.querySelector("select");
+            var selectedValue = selectElement.value;
+            var selectElementDate = document.getElementById("dateOptions");
+            var selectedDate = selectElementDate.value;
 
-    document.querySelector(".output").textContent = "Meeting is Scheduled for you at " + selectedValue+" on "+selectedDate;
-    document.querySelector(".output").classList.remove("hide");
-});
+            var googleMeetLink = "https://meet.google.com/new?date=" + selectedDate + "&time=" + selectedValue;
 
+            document.querySelector(".output").textContent = "Meeting link: " + googleMeetLink;
+            document.querySelector(".output").classList.remove("hide");
+            
+            // Add text above the container
+            document.querySelector(".text").textContent = "Your meeting has been scheduled";
+        });
 
-// script.js
+        // Function to copy the meeting link
+        function copyLink() {
+            var meetingLink = document.querySelector(".output").textContent;
+            navigator.clipboard.writeText(meetingLink);
+            alert("Meeting link copied to clipboard!");
+        }
 
-document.addEventListener("DOMContentLoaded", function() {
-    var selectElement = document.getElementById("dateOptions");
+        // script.js
 
-    var currentDate = new Date();
+        document.addEventListener("DOMContentLoaded", function() {
+            var selectElement = document.getElementById("dateOptions");
 
-    for (var i = 0; i < 3; i++) {
-        var dateOption = new Date();
-        dateOption.setDate(currentDate.getDate() + i);
-        var dateString = dateOption.toISOString().split('T')[0];
-        var option = document.createElement("option");
-        option.value = dateString;
-        option.textContent = dateString;
-        selectElement.appendChild(option);
-    }
-});
+            var currentDate = new Date();
 
-document.getElementById("displayButton").addEventListener("click", function() {
-    
-    document.getElementById("displayArea").textContent = "Selected date: " + selectedDate;
-});
+            for (var i = 0; i < 3; i++) {
+                var dateOption = new Date();
+                dateOption.setDate(currentDate.getDate() + i);
+                var dateString = dateOption.toISOString().split('T')[0];
+                var option = document.createElement("option");
+                option.value = dateString;
+                option.textContent = dateString;
+                selectElement.appendChild(option);
+            }
+        });
 
     </script>
 </body>
