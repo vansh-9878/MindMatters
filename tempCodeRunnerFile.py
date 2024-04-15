@@ -1,2 +1,2 @@
 
-chat = model.start_chat(history=[])
+app = Flask(__name__)
