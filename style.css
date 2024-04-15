@@ -6,6 +6,10 @@ body{
     background-color: #212529;
 }
 
+a{
+    text-decoration: none;
+}
+
 .content{
     margin: 24px;
     width: 97%;
