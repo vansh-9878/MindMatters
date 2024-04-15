@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            background-color: #333; /* Dark background */
+            color: #fff; /* White text */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #e45604;
+            border-radius: 5px;
+            background-color: #333; /* Dark background */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+            color: #fff; /* White text */
+        }
+
+        .username {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Profile</h2>
+        <div class="username">
+            <h3>Welcome, <span id="username"></span>!</h3>
+        </div>
+        <!-- Button to redirect to another page -->
+        <button class="btn" onclick="redirectToAnotherPage()">Go to Another Page</button>
+    </div>
+
+    <script>
+        // Function to redirect to another page
+        function redirectToAnotherPage() {
+            window.location.href = 'index2.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Retrieve username from URL query parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('username');
+
+            // Display username
+            document.getElementById('username').textContent = username;
+        });
+    </script>
+</body>
+</html>
