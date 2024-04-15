@@ -1,63 +1,53 @@
-# # from flask import Flask, render_template, request
-# # import csv
+import logging
+from flask import Flask, render_template, request, redirect
+import pandas as pd
 
-# # app = Flask(__name__)
+app = Flask(__name__)
 
-# # # Function to write user data to a CSV file
-# # def write_to_csv(data):
-# #     with open('users.csv', mode='a', newline='') as file:
-# #         writer = csv.writer(file)
-# #         writer.writerow(data)
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
-# # # Route for the signup form
-# # @app.route('/')
-# # def signup_form():
-# #     return render_template('signup_form.html')
+# Function to append user data to the Excel file
+def write_to_excel(data):
+    try:
+        # Read existing data from Excel file
+        try:
+            df = pd.read_excel('users.xlsx')
+        except FileNotFoundError:
+            # If file doesn't exist, create a new DataFrame
+            df = pd.DataFrame(columns=['Username', 'Email', 'Password'])
 
-# # # Route to handle form submission
-# # @app.route('/signup', methods=['POST'])
-# # def signup():
-# #     username = request.form['username']
-# #     email = request.form['email']
-# #     password = request.form['password']
+        # Append new user data to DataFrame
+        df = pd.concat([df, pd.DataFrame([data])], ignore_index=True)
 
-# #     # Write user data to CSV file
-# #     write_to_csv([username, email, password])
+        # Write DataFrame back to Excel file
+        df.to_excel('users.xlsx', index=False)
+        logging.debug("Data written to Excel file successfully.")
+    except Exception as e:
+        logging.error("Error writing to Excel database:", e)
 
-# #     return 'Signup successful!'
+# Route for the signup form
+@app.route('/')
+def signup_form():
+    return render_template('signup.html')
 
-# # if __name__ == '__main__':
-# #     app.run(debug=True)
+# Route to handle form submission
+@app.route('/signup', methods=['POST'])
+def signup():
+    username = request.form['username']
+    email = request.form['email']
+    password = request.form['password']
 
-# from flask import Flask, render_template, request
-# from openpyxl import Workbook
+    # Write user data to the Excel file
+    write_to_excel({'Username': username, 'Email': email, 'Password': password})
 
-# app = Flask(__name__)
+    # Redirect to login page after successful signup
+    return redirect('/login')
 
-# # Function to write user data to an Excel file
-# def write_to_excel(data):
-#     wb = Workbook()
-#     ws = wb.active
-#     ws.append(['Username', 'Email', 'Password'])
-#     ws.append(data)
-#     wb.save('users.xlsx')
+# Route for the login page
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
-# # Route for the signup form
-# @app.route('/')
-# def signup_form():
-#     return render_template('signup.html')
-
-# # Route to handle form submission
-# @app.route('/signup', methods=['POST'])
-# def signup():
-#     username = request.form['username']
-#     email = request.form['email']
-#     password = request.form['password']
-
-#     # Write user data to Excel file
-#     write_to_excel([username, email, password])
-
-#     return 'Signup successful!'
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
