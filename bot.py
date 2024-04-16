@@ -65,5 +65,6 @@ def get_response():
     # Return the bot's response as JSON
     return jsonify({'response': response.text})
 
+
 if __name__ == "__main__":
     app.run(debug=True)

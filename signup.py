@@ -49,5 +49,9 @@ def signup():
 def login():
     return render_template('login.html')
 
+@app.route('/favicon.ico')
+def favicon():
+    return redirect('/static/favicon.ico')
+
 if __name__ == '__main__':
     app.run(debug=True)

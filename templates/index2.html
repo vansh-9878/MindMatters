@@ -1,11 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    *{
+    color: white;
+}
+
+body{
+    background-color: #212529;
+}
+
+a{
+    text-decoration: none;
+}
+
+.content{
+    margin: 24px;
+    width: 97%;
+    background-color: #333131;
+    border-radius: 10px;
+}
+
+.navBar{
+    margin-left: 60%;
+}
+
+.navBtn{
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.sign-up{
+    background-color: white;
+}
+
+.start{
+    margin: 40px;
+}
+
+.tagline{
+    font-size: 50px;
+}
+
+span{
+    font-size: 20px;
+}
+
+.expand-btn{
+    border-radius: 20px;
+    width: 140px;
+}
+
+.image{
+    margin-top: 20px;
+    width: 400px;
+    height: 400px;
+    background-image: url(images/hello.png);
+    background-size: cover;
+}
+
+.text{
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.podcast{
+    margin-top: 40px;
+}
+
+.pic{
+    margin-left: 30px;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.pod1{
+    background-image: url(images/podcast1.jpeg);
+    background-size: cover;
+}
+
+.pod2{
+    background-image: url(images/podcast2.jpg);
+    background-size: cover;
+}
+.pod3{
+    background-image: url(images/podcast3.jpeg);
+    background-size: cover;
+}
+.pod4{
+    background-image: url(images/podcast4.jpeg);
+    background-size: cover;
+}
+
+.head{
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.author{
+    margin-left: 90px;
+}
+  </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -22,8 +125,8 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="index.html">ChatBot</a>
-              </li>
+                <a class="nav-link" href="#" id="chatbot-link">ChatBot</a>
+            </li>
               <li class="nav-item">
                 <a class="nav-link " href="games.html">Games</a>
               </li>
@@ -85,7 +188,7 @@
       btn=document.querySelector(".health");
       btn.addEventListener("click",function(){
         window.location.href = "form.html";
-      })
+      });
     </script>
 </body>
 </html>

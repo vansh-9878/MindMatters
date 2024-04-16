@@ -52,7 +52,7 @@
     <div class="container">
         <h2>User Profile</h2>
         <div class="username">
-            <h3>Welcome, <span id="username"></span>!</h3>
+            <h3>Welcome, {{ session['username'] }}!</h3>
         </div>
         <!-- Button to redirect to another page -->
         <button class="btn" onclick="redirectToAnotherPage()">Go to the Home Page</button>
@@ -61,17 +61,11 @@
     <script>
         // Function to redirect to another page
         function redirectToAnotherPage() {
-            window.location.href = 'index2.html';
+            window.location.href = '/index2.html';
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Retrieve username from URL query parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            const username = urlParams.get('username');
-
-            // Display username
-            document.getElementById('username').textContent = username;
-        });
     </script>
 </body>
 </html>
+
+
+
