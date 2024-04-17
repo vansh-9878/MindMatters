@@ -21,8 +21,8 @@ MindMatters offers a community section where users can connect with each other, 
 We provide links to various relaxing music playlists, videos, and podcasts available on Spotify. These resources offer additional support for users looking to unwind and de-stress.
 
 ## Technologies Used
-Python Flask: Backend framework for building the web application.
-HTML/CSS/JavaScript: Frontend technologies for creating the user interface and interactive features.
+1. Python Flask: Backend framework for building the web application.
+2. HTML/CSS/JavaScript: Frontend technologies for creating the user interface and interactive features.
 
 
 ## Getting Started
