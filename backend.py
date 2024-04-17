@@ -99,6 +99,22 @@ def profile():
 def index():
     return render_template('index.html')
 
+@app.route('/index.html')
+def index_html():
+    return render_template('index.html')
+
+@app.route('/games.html')
+def games_html():
+    return render_template('games.html')
+
+@app.route('/form.html')
+def form_html():
+    return render_template('form.html')
+
+@app.route('/therepist.html')
+def therepist_html():
+    return render_template('therepist.html')
+
 # Route to handle user input and return bot response
 @app.route('/get_resp', methods=['POST'])
 def get_response():
