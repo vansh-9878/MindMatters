@@ -32,7 +32,7 @@ def signup_form():
     return render_template('signup.html')
 
 # Route to handle form submission
-@app.route('/signup', methods=['POST'])
+@app.route('/sign', methods=['GET','POST'])
 def signup():
     username = request.form['username']
     email = request.form['email']
