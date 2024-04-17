@@ -1,8 +1,7 @@
-## MindMatters
-MindMatters: Mental Health Tracker
+# MindMatters: Mental Health Tracker
 MindMatters is a comprehensive mental health tracker designed to help users monitor their mental well-being and access various resources to improve their mental health.
 
-# Features
+## Features
 1. Mental Health Score Calculator
 MindMatters provides a form where users can input their feelings, thoughts, and experiences. Based on the user's inputs, the system calculates a mental health score, providing users with insights into their current mental state.
 
@@ -21,12 +20,12 @@ MindMatters offers a community section where users can connect with each other, 
 6. Relaxing Music, Videos, and Podcasts
 We provide links to various relaxing music playlists, videos, and podcasts available on Spotify. These resources offer additional support for users looking to unwind and de-stress.
 
-# Technologies Used
-Flask: Backend framework for building the web application.
+## Technologies Used
+Python Flask: Backend framework for building the web application.
 HTML/CSS/JavaScript: Frontend technologies for creating the user interface and interactive features.
 
 
-# Getting Started
+## Getting Started
 To run MindMatters locally, follow these steps:
 1. Clone the repository: git clone https://github.com/your-username/mind-matters.git
 2. Navigate to the project directory: cd mind-matters
@@ -35,5 +34,6 @@ To run MindMatters locally, follow these steps:
 5. Run the Flask application: python backend.py
 6. Access the application in your web browser at http://localhost:5000
 
-# Contributing
+## Contributing
 We welcome contributions from the community! If you'd like to contribute to MindMatters, please fork the repository, make your changes, and submit a pull request. Don't forget to include a detailed description of your changes.
+
