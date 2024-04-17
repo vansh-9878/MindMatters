@@ -1,24 +1,3 @@
-# import google.generativeai as genai
-# import os
-# from dotenv import load_dotenv
-# import sys
-# load_dotenv()
-# API_KEY = os.getenv('GEMINI_API_KEY')
-# genai.configure(
-#     api_key = API_KEY
-# )
-# model = genai.GenerativeModel('gemini-pro')
-# chat = model.start_chat(history=[])
-# while True:
-#     question = input("You:").lower()
-#     if question == ["quit","exit","break"]:
-#         sys.exit(0)
-
-#     response = chat.send_message(question)
-#     print(f"Bot: {response.text}")
-
-
-
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS  # Import CORS extension
 
