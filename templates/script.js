@@ -258,6 +258,8 @@ let words = [
       inputField = document.querySelector("input"),
       refreshBtn = document.querySelector(".refresh-word"),
       checkBtn = document.querySelector(".check-word");
+      game3=document.querySelector(".game3");
+      btn3=document.querySelector(".fix");
 
       let correctWord, timer;
 
@@ -288,7 +290,19 @@ let words = [
           inputField.value = "";
           inputField.setAttribute("maxlength", correctWord.length);
       }
-      initGame();
+
+
+        btn3.addEventListener("click",()=>{
+            initGame();
+        })
+
+
+    //   if(game3.classList.contains(".escape")){
+    //     console.log("heyy");
+    //   }else{
+    //     
+    //   }
+      
 
       const checkWord = () => {
           let userWord = inputField.value.toLowerCase();
@@ -308,10 +322,10 @@ let words = [
 
 btn1=document.querySelector(".col");
 btn2=document.querySelector(".con");
-btn3=document.querySelector(".fix");
+
 game1=document.querySelector(".game1");
 game2=document.querySelector(".game2");
-game3=document.querySelector(".game3");
+
 shut1=document.querySelector(".set1");
 shut2=document.querySelector(".set2");
 shut3=document.querySelector(".set3");
