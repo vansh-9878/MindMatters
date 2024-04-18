@@ -5,6 +5,9 @@ import os
 from dotenv import load_dotenv
 from flask_cors import CORS  # Import CORS extension
 import google.generativeai as genai
+import random
+import string
+
 
 app = Flask(__name__)
 
@@ -181,6 +184,120 @@ def favicon():
 @app.route('/index2.html')
 def index2():
     return render_template('index2.html')
+
+
+
+def generate_meeting_code():
+    # Generate three segments of alphabets or digits
+    segment1 = ''.join(random.choices(string.ascii_lowercase, k=3))
+    segment2 = ''.join(random.choices(string.ascii_lowercase, k=4))
+    segment3 = ''.join(random.choices(string.ascii_lowercase, k=3))
+
+    # Concatenate the segments with dashes
+    return f"{segment1}-{segment2}-{segment3}"
+
+
+@app.route('/generate-meet-link', methods=['POST'])
+def generate_meet_link():
+    data = request.json
+    selected_slot = data.get('slot')
+    selected_date = data.get('date')
+
+    meeting_code = generate_meeting_code()
+
+    # You can replace this logic with your own to generate the Google Meet link
+    google_meet_link = f"https://meet.google.com/new?date={selected_date}&time={selected_slot}&code={meeting_code}"
+
+    return jsonify({'meeting_link': google_meet_link, 'meeting_code': meeting_code})
+
+
+# USER SECTION
+
+def write_to_excel1(data):
+    try:
+        # Read existing data from Excel file
+        try:
+            df = pd.read_excel('therapists.xlsx')
+        except FileNotFoundError:
+            # If file doesn't exist, create a new DataFrame
+            df = pd.DataFrame(columns=['Username', 'Email', 'Password'])
+
+        # Append new user data to DataFrame
+        df = pd.concat([df, pd.DataFrame([data])], ignore_index=True)
+
+        # Write DataFrame back to Excel file
+        df.to_excel('therapists.xlsx', index=False)
+        logging.debug("Data written to Excel file successfully.")
+    except Exception as e:
+        logging.error("Error writing to Excel database:", e)
+
+# Function to check if the username and password are valid
+def authenticate1(username, password):
+    try:
+        df = pd.read_excel('therapists.xlsx')
+        user_data = df.loc[df['Username'] == username]
+        if not user_data.empty and user_data['Password'].iloc[0] == password:
+            logging.info("User authenticated successfully: %s", username)
+            return True  # Valid username and password
+        else:
+            logging.warning("Invalid credentials for user: %s", username)
+            return False  # Invalid credentials
+    except Exception as e:
+        logging.error("Error authenticating user: %s", e)
+        return False  # Error during authentication
+
+@app.route('/therapist_login', methods=['GET', 'POST'])
+def therapist_login():
+    if request.method == 'POST':
+        # Get the form data
+        username = request.form['username']
+        password = request.form['password']
+
+        # Perform authentication
+        if authenticate1(username, password):
+            # Store username in session
+            session['username'] = username
+            # If authentication is successful, redirect the user to prof.html
+            return redirect('prof.html')
+        else:
+            # If authentication fails, render the login form again with an error message
+            return render_template('therapist_login.html', message='Invalid username or password.')
+    else:
+        # If it's a GET request, render the login form
+        return render_template('therapist_login.html')
+    # return render_template('therapist_login.html')
+
+@app.route('/therapist_signup', methods=['GET', 'POST'])
+def therapist_signup():
+    # return render_template('therapist_signup.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        # Write user data to the Excel file
+        write_to_excel1({'Username': username, 'Email': email, 'Password': password})
+
+        # Redirect to login page after successful signup
+        return redirect('/therapist_login')
+    else:
+        return render_template('therapist_signup.html')
+
+@app.route('/therapist_login')
+def therapist_login_form():
+    return render_template('therapist_login.html')
+
+@app.route('/therapist_signup')
+def therapist_signup_form():
+    return render_template('therapist_signup.html')
+
+@app.route('/tpl')
+def tpl():
+    return render_template('tpl.html')
+
+@app.route('/tps')
+def tps():
+    return render_template('tps.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

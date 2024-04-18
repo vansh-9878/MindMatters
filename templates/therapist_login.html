@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup Form</title>
+    <title>Login Form</title>
     <style>
         body {
-            background-color: white;
+            background-color: #333;
             color: #fff;
             font-family: Arial, sans-serif;
         }
 
         .container {
-            width: 320px;
+            width: 300px;
             margin: 100px auto;
             padding: 20px;
             border: 1px solid #ec5b07;
@@ -26,25 +26,18 @@
             text-align: center;
         }
 
-        .form-line {
-            width: 100%;
-            height: 2px;
-            background-color: #ec5b07;
-            margin-bottom: 20px;
-        }
-
         label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
         }
 
         input[type="text"],
         input[type="email"],
+        input[type="number"],
         input[type="password"] {
             width: 100%;
             padding: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             border: none;
             border-bottom: 1px solid #777;
             background-color: transparent;
@@ -54,14 +47,15 @@
 
         input[type="text"]:focus,
         input[type="email"]:focus,
+        input[type="number"]:focus,
         input[type="password"]:focus {
-            border-bottom: 1px solid #ec5b07;
+            border-bottom: 1px solid #4CAF50;
         }
 
         button {
             width: 100%;
-            background-color: #ec5b07;
-            color: #fff;
+            background-color: #4CAF50;
+            color: white;
             padding: 10px;
             border: none;
             border-radius: 3px;
@@ -70,25 +64,19 @@
         }
 
         button:hover {
-            background-color: #ff7f2a;
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Signup Form</h2>
-        <div class="form-line"></div>
-        <form action="http://127.0.0.1:5000/sign" method="POST">
-
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="http://127.0.0.1:5000/therapist_login">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <!-- <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required> -->
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <a href="login.html"><button type="submit">Sign Up</button></a>
+            <a href="prof.html"><button type="submit" id="loginButton">Login</button></a>
         </form>
     </div>
 </body>
