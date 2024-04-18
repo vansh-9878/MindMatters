@@ -1,5 +1,5 @@
 import logging
-from flask import Flask, render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session, jsonify, send_from_directory
 import pandas as pd
 import os
 from dotenv import load_dotenv
@@ -115,6 +115,26 @@ def form_html():
 def therepist_html():
     return render_template('therepist.html')
 
+@app.route('/script.js')
+def script():
+    return render_template('script.js')
+
+@app.route('/style.css')
+def style_css():
+    return render_template('style.css')
+
+app.route('/nav.css')
+def nav_css():
+    return render_template('nav.css')
+
+app.route('/games.css')
+def games_css():
+    return render_template('games.css')
+
+app.route('/form.css')
+def form_css():
+    return render_template('form.css')
+
 # Route to handle user input and return bot response
 @app.route('/get_resp', methods=['POST'])
 def get_response():
@@ -161,7 +181,6 @@ def favicon():
 @app.route('/index2.html')
 def index2():
     return render_template('index2.html')
-
 
 if __name__ == '__main__':
     app.run(debug=True)
