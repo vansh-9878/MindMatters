@@ -299,5 +299,12 @@ def tpl():
 def tps():
     return render_template('tps.html')
 
+@app.route('/')
+def disp_data():
+    df = pd.read_excel('therapists.xlsx')
+    table = df.to_html(index=False)
+    print("Table Data:", table)  # Add this print statemen
+    return render_template('display.html', table=table)
+
 if __name__ == '__main__':
     app.run(debug=True)
