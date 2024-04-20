@@ -263,6 +263,22 @@ let words = [
 
       let correctWord, timer;
 
+      function wrong(){
+        let c=document.querySelector(".no");
+        c.classList.remove("escape");
+        setTimeout(() => {
+            c.classList.add("escape");
+          }, 1000);
+    }
+
+    function correct(){
+        let c=document.querySelector(".yes");
+        c.classList.remove("escape");
+        setTimeout(() => {
+            c.classList.add("escape");
+          }, 1000);
+    }
+
       const initTimer = maxTime => {
           clearInterval(timer);
           timer = setInterval(() => {
@@ -270,13 +286,20 @@ let words = [
                   maxTime--;
                   return timeText.innerText = maxTime;
               }
-              alert(`Time off! ${correctWord.toUpperCase()} was the correct word`);
+              let c=document.querySelector(".no");
+              c.innerText="Time Up....."
+              c.classList.remove("escape");
+                setTimeout(() => {
+                    c.classList.add("escape");
+                    }, 1000);
+                // c.innerText="INCORRECT"
+            //   alert(`Time off! ${correctWord.toUpperCase()} was the correct word`);
               initGame();
           }, 1000);
       }
 
       const initGame = () => {
-        
+          document.querySelector(".no").innerText="INCORRECT";
           initTimer(30);
           let randomObj = words[Math.floor(Math.random() * words.length)];
           let wordArray = randomObj.word.split("");
@@ -296,6 +319,8 @@ let words = [
             initGame();
         })
 
+        
+
 
     //   if(game3.classList.contains(".escape")){
     //     console.log("heyy");
@@ -306,9 +331,9 @@ let words = [
 
       const checkWord = () => {
           let userWord = inputField.value.toLowerCase();
-          if(!userWord) return alert("Please enter the word to check!");
-          if(userWord !== correctWord) return alert(`Oops! ${userWord} is not a correct word`);
-          alert(`Congrats! ${correctWord.toUpperCase()} is the correct word`);
+          if(!userWord) return wrong();
+          if(userWord !== correctWord) return wrong();
+          correct();
           initGame();
       }
 
