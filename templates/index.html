@@ -6,7 +6,9 @@
     <title>Generative AI Chatbot</title>
     <style>
         /* CSS styles go here */
-
+        *{
+            background-color: #212529;
+        }
         a {
             text-decoration: none;
         }
@@ -16,13 +18,18 @@
             background-color: #2e2a2a; /* Black background */
             margin: 0;
             padding: 0;
-            color: #333131; /* White text color */
+            /* color: #333131; White text color */
+            background-color: #212529;
         }
 
         .chat-container {
+            width: 500px;
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
+            position: absolute;
+            left: 500px;
+            top: 100px;
             background-color: #333131;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -53,12 +60,14 @@
         #send-btn {
             width: 100px;
             height: 40px;
-            border: none;
+            margin-top: 20px;
+            /* border: none;
             background-color: #007bff;
             color: #fff;
             border-radius: 0%;
             cursor: pointer;
-            outline: none;
+            outline: none; */
+            
         }
 
         .user-message {
@@ -81,13 +90,13 @@
             background-color: #343a40 !important; /* Dark background for navbar */
         }
 
-        .nav-link {
-            color: #fff !important; /* White text color for navbar links */
+        /* .nav-link {
+            color: #fff !important; /* White text color for navbar links 
         }
 
         .nav-link:hover {
-            color: #17a2b8 !important; /* Hover color for navbar links */
-        }
+            color: #17a2b8 !important; /* Hover color for navbar links 
+        } */
 
         .navbar-brand {
             color: #fff !important; /* White text color for navbar brand */
@@ -97,12 +106,20 @@
             margin-left: 85%;
         }
 
-        .navBtn a {
-            color: #fff !important; /* White text color for button link */
-        }
+        /* .navBtn a {
+            color: #fff !important; /* White text color for button link 
+        }*/
 
         .navBtn a:hover {
             color: #17a2b8 !important; /* Hover color for button link */
+        } 
+        .content{
+            margin: 24px;
+            width: 97%;
+            background-color: white;
+            border-radius: 10px;
+            /* position: absolute;
+            z-index: 100; */
         }
     </style>
     <link rel="stylesheet" href="style.css">
@@ -133,10 +150,12 @@
             </div>
         </div>
     </nav>
-    <div class="chat-container">
-        <div class="chat-box" id="chat-box"></div>
-        <input type="text" id="user-input" placeholder="Type your message...">
-        <button id="send-btn">Send<i class="fas fa-paper-plane"></i></button>
+    <div class="content">
+        <div class="chat-container">
+            <div class="chat-box" id="chat-box"></div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-btn" class="btn btn-primary">Send<i class="fas fa-paper-plane"></i></button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -164,7 +183,7 @@
                     contentType: 'application/json',
                     success: function(data) {
                         // Handle success response
-                        $('#chat-box').append('<div class="bot-message">Bot: ' + data.response + '</div>');
+                        $('#chat-box').append('<div class="bot-message">Veer : ' + data.response + '</div>');
                     },
                     error: function(xhr, status, error) {
                         // Handle error response
